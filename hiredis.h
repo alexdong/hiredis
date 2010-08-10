@@ -30,6 +30,10 @@
 #ifndef __HIREDIS_H
 #define __HIREDIS_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define REDIS_REPLY_ERROR 0
 #define REDIS_REPLY_STRING 1
 #define REDIS_REPLY_ARRAY 2
@@ -50,5 +54,10 @@ typedef struct redisReply {
 redisReply *redisConnect(int *fd, const char *ip, int port);
 void freeReplyObject(redisReply *r);
 redisReply *redisCommand(int fd, const char *format, ...);
+
+#ifdef __cplusplus
+}
+#endif
+
 
 #endif
